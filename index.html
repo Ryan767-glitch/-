@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>中小企業向け補助金マッチング（試作）</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>中小企業向け補助金マッチング（試作）</h1>
+      <p>
+        事業内容・投資目的・所在地などを選ぶだけで、候補制度を絞り込むプロトタイプです。
+      </p>
+      <p class="notice">
+        データ最終確認日: 2026-03-26（UTC）。申請前に必ず公式公募要領をご確認ください。
+      </p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>1. 条件を選択</h2>
+        <form id="filterForm" class="grid">
+          <label>
+            所在地
+            <select name="region" id="region">
+              <option value="any">指定なし</option>
+              <option value="national">全国対象</option>
+              <option value="tokyo">東京都</option>
+              <option value="osaka">大阪府</option>
+              <option value="other_local">その他自治体</option>
+            </select>
+          </label>
+
+          <label>
+            企業規模
+            <select name="companySize" id="companySize">
+              <option value="any">指定なし</option>
+              <option value="small">小規模事業者</option>
+              <option value="sme">中小企業</option>
+            </select>
+          </label>
+
+          <label>
+            投資目的
+            <select name="purpose" id="purpose">
+              <option value="any">指定なし</option>
+              <option value="it">IT導入・DX</option>
+              <option value="productivity">設備投資・生産性向上</option>
+              <option value="sales">販路開拓</option>
+              <option value="labor_saving">省力化・人手不足対策</option>
+              <option value="growth">大規模成長投資</option>
+            </select>
+          </label>
+
+          <label>
+            希望補助額
+            <select name="amount" id="amount">
+              <option value="any">指定なし</option>
+              <option value="lt1m">100万円未満</option>
+              <option value="1m_10m">100万〜1,000万円</option>
+              <option value="10m_50m">1,000万〜5,000万円</option>
+              <option value="gt50m">5,000万円超</option>
+            </select>
+          </label>
+
+          <label>
+            公募状況
+            <select name="status" id="status">
+              <option value="any">指定なし</option>
+              <option value="open">公募中・申請受付中</option>
+              <option value="planned">今後公募予定</option>
+              <option value="all">全て表示</option>
+            </select>
+          </label>
+        </form>
+        <button id="searchBtn">候補を表示</button>
+      </section>
+
+      <section class="card">
+        <h2>2. 候補制度</h2>
+        <div id="resultMeta"></div>
+        <ul id="resultList" class="result-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>公式情報の確認先</h2>
+        <ul>
+          <li><a href="https://www.chusho.meti.go.jp/" target="_blank" rel="noopener noreferrer">中小企業庁</a></li>
+          <li><a href="https://it-shien.smrj.go.jp/" target="_blank" rel="noopener noreferrer">IT導入補助金事務局（デジタル化・AI導入補助金2026）</a></li>
+          <li><a href="https://www.jgrants-portal.go.jp/" target="_blank" rel="noopener noreferrer">jGrants（国・自治体補助金ポータル）</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>
